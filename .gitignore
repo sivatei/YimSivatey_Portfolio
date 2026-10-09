@@ -1,3 +1,13 @@
+# Dependencies
+node_modules/
+*/node_modules/
+**/node_modules/
+
+# Production build
+dist/
+*/dist/
+**/dist/
+
 # Environment files
 .env
 .env.*
@@ -9,7 +19,11 @@ frontend/.env
 frontend/.env.*
 frontend/.env.production
 
-# Vite cache and temp files
+# Cache and logs
 .vite/
 */.vite/
 **/node_modules/.vite/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
