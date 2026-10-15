@@ -8,16 +8,11 @@ dist/
 */dist/
 **/dist/
 
-# Environment files
-.env
-.env.*
-.env.production
-*.env
+# Secret Environment files
 backend/.env
 backend/.env.*
 frontend/.env
-frontend/.env.*
-frontend/.env.production
+*.local
 
 # Cache and logs
 .vite/
