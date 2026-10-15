@@ -10,22 +10,7 @@ const app = express();
 // --- Middleware ---
 app.use(express.json());
 
-const allowedOrigins = (process.env.CLIENT_ORIGIN || "http://localhost:5173")
-  .split(",")
-  .map((origin) => origin.trim());
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // allow requests with no origin (Postman, curl, server-to-server)
-      if (!origin || allowedOrigins.includes("*") || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS: " + origin));
-      }
-    },
-  })
-);
+app.use(cors());
 
 // --- Routes ---
 app.get("/", (req, res) => {
