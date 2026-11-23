@@ -1,24 +1,43 @@
-require("dotenv").config();
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, ".env") });
 const express = require("express");
 const cors = require("cors");
-const connectDB = require("./config/db");
-const projectRoutes = require("./routes/projects");
-const contactRoutes = require("./routes/contact");
+
+// Determine database mode: Supabase (preferred) or MongoDB (legacy fallback)
+const useSupabase = Boolean(
+  process.env.SUPABASE_URL &&
+    (process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY)
+);
+
+const projectRoutes = useSupabase
+  ? require("./routes/projectsSupabase")
+  : require("./routes/projects");
+
+const contactRoutes = useSupabase
+  ? require("./routes/contactSupabase")
+  : require("./routes/contact");
 
 const app = express();
 
 // --- Middleware ---
 app.use(express.json());
-
 app.use(cors());
 
 // --- Routes ---
 app.get("/", (req, res) => {
-  res.json({ status: "ok", message: "Portfolio API is running." });
+  res.json({
+    status: "ok",
+    message: "Portfolio API is running.",
+    database: useSupabase ? "Supabase (PostgreSQL)" : "MongoDB",
+  });
 });
 
 app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", uptime: process.uptime() });
+  res.json({
+    status: "ok",
+    uptime: process.uptime(),
+    database: useSupabase ? "Supabase" : "MongoDB",
+  });
 });
 
 app.use("/api/projects", projectRoutes);
@@ -37,8 +56,17 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-connectDB().then(() => {
+if (useSupabase) {
+  console.log("Database Mode: Supabase (PostgreSQL)");
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
-});
+} else {
+  console.log("Database Mode: MongoDB Atlas");
+  const connectDB = require("./config/db");
+  connectDB().then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  });
+}

@@ -1,6 +1,6 @@
 // Central place for all calls to the backend API.
 // The base URL comes from an environment variable so it can point at
-// localhost during development and your deployed AWS backend in production.
+// localhost during development and your deployed Render backend in production.
 
 const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? "https://six025010096-yimsivatey-webdevfinal.onrender.com" : "http://localhost:5000");
 

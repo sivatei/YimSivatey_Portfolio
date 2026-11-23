@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: sivatey-portfolio-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: ADMIN_KEY
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
