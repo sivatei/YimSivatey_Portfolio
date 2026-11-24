@@ -11,8 +11,8 @@ const projects = [
     description:
       "Cross-platform mentor booking and learning mobile app built with Flutter, Supabase, PostgreSQL, Node.js, Express, and Stripe, featuring authentication, mentor/course discovery, student/teacher screens, and payment integration.",
     techStack: ["Flutter", "Supabase", "PostgreSQL", "Node.js", "Express.js", "Stripe"],
-    imageUrl: "",
-    imageUrls: [],
+    imageUrl: "/jomnes-erd.jpg",
+    imageUrls: ["/jomnes-erd.jpg"],
     videoUrl: "",
     githubUrl: "https://github.com/v1mean/MOBILE_APPLICATION",
     liveUrl: "",

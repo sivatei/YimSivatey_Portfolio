@@ -19,7 +19,7 @@ export const PROJECT_DETAILS = {
     architecture:
       "Flutter mobile client connected to Supabase for authentication and PostgreSQL data, paired with a Node.js/Express backend handling Stripe payment workflows.",
     databaseDesign:
-      "PostgreSQL database hosted on Supabase storing user accounts and application records.",
+      "Normalized PostgreSQL ERD in Supabase spanning User, Tutor_profile, Course, Tutor_listings, Availability, Booking, Payment, Payout, Review, Messages, and Session_notes with UUID primary and foreign keys.",
     personalContribution:
       "Contributed to Flutter mobile application development, Supabase/PostgreSQL integration, backend API integration, and booking workflow screens.",
     outcomes:
