@@ -36,8 +36,8 @@ export default function About() {
 
           {/* Photo + Profile Summary */}
           <aside className="lg:col-span-5 panel-card p-6 space-y-5">
-            <div className="flex items-center gap-4 pb-5 border-b border-slate-800">
-              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg border border-slate-700 bg-slate-800">
+            <div className="flex items-center gap-5 pb-5 border-b border-slate-800">
+              <div className="relative h-24 w-24 sm:h-28 sm:w-28 shrink-0 overflow-hidden rounded-xl border border-slate-700 bg-slate-800">
                 <img
                   src={PHOTO_SRC}
                   alt="Yim Sivatey"
@@ -48,17 +48,17 @@ export default function About() {
                   }}
                 />
                 <div
-                  className="absolute inset-0 items-center justify-center font-display text-base font-semibold text-blue-400"
+                  className="absolute inset-0 items-center justify-center font-display text-2xl font-semibold text-blue-400"
                   style={{ display: "none" }}
                 >
                   YS
                 </div>
               </div>
               <div className="min-w-0">
-                <p className="font-display text-base font-semibold text-paper truncate">
+                <p className="font-display text-lg font-semibold text-paper truncate">
                   Yim Sivatey
                 </p>
-                <p className="text-xs text-slate-400">
+                <p className="mt-0.5 text-xs sm:text-sm text-slate-400">
                   Software Engineering Student
                 </p>
               </div>
