@@ -1,26 +1,30 @@
 const EDUCATION = [
   {
-    degree: "Bachelor's Degree in Software Engineering",
+    degree: "Bachelor of Computer Science / Software Engineering",
     institution: "CamTech University",
     period: "2025 – 2028 (Expected)",
-    summary:
-      "Undergraduate studies covering software engineering principles, algorithms and data structures, relational and NoSQL databases, web and mobile application development, and embedded systems.",
+    coursework: [
+      "OOP",
+      "DSA",
+      "Database Systems",
+      "Software Engineering",
+      "Computer Architecture",
+      "HCI",
+    ],
   },
 ];
 
 const EXPERIENCE = [
   {
-    role: "UX/UI Design & Frontend Collaboration",
+    role: "UX/UI Design & Frontend Implementation",
     organization: "HomeSweet — Internship / Team Project",
     period: "2025 – 2027",
-    summary:
-      "Collaborated on a student rental management platform connecting students with landlords.",
     responsibilities: [
-      "Designed wireframes, user flows, and responsive interface layouts in Figma.",
-      "Collaborated with team developers on frontend views using Vue.js and Tailwind CSS.",
-      "Focused on clear property discovery, rental application clarity, and trust-oriented user flows.",
+      "Created wireframes and interface designs in Figma.",
+      "Collaborated with team members on layout structure and user flows.",
+      "Implemented responsive frontend components using React and Tailwind CSS.",
     ],
-    technologies: ["Figma", "Vue.js", "Firebase", "Tailwind CSS"],
+    technologies: ["Figma", "React", "Tailwind CSS"],
   },
 ];
 
@@ -43,19 +47,34 @@ export default function Experience() {
               Education
             </h3>
             {EDUCATION.map((edu) => (
-              <article key={edu.degree} className="panel-card p-6 flex-1 flex flex-col">
-                <p className="font-mono text-xs text-slate-400 tabular-nums">
-                  {edu.period}
-                </p>
-                <h4 className="section-title mt-2 text-lg text-paper">
-                  {edu.degree}
-                </h4>
-                <p className="mt-1 text-sm font-medium text-blue-400">
-                  {edu.institution}
-                </p>
-                <p className="mt-4 text-sm text-slate-300 leading-relaxed">
-                  {edu.summary}
-                </p>
+              <article
+                key={edu.degree}
+                className="panel-card p-6 flex-1 flex flex-col justify-between"
+              >
+                <div>
+                  <p className="font-mono text-xs text-slate-400 tabular-nums">
+                    {edu.period}
+                  </p>
+                  <h4 className="section-title mt-2 text-lg text-paper">
+                    {edu.degree}
+                  </h4>
+                  <p className="mt-1 text-sm font-medium text-blue-400">
+                    {edu.institution}
+                  </p>
+
+                  <div className="mt-4">
+                    <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400 mb-2">
+                      Relevant Coursework
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {edu.coursework.map((course) => (
+                        <span key={course} className="badge text-[11px]">
+                          {course}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </article>
             ))}
           </div>
@@ -80,11 +99,8 @@ export default function Experience() {
                   <p className="mt-1 text-sm font-medium text-blue-400">
                     {exp.organization}
                   </p>
-                  <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                    {exp.summary}
-                  </p>
 
-                  <ul className="mt-3 list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                  <ul className="mt-4 list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
                     {exp.responsibilities.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
