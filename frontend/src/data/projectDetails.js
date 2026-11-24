@@ -116,30 +116,6 @@ export const PROJECT_DETAILS = {
     outcomes:
       "Strengthened full-stack skills in designing relational Supabase schemas, enforcing Row Level Security, and structuring RESTful resource APIs.",
   },
-  "personal portfolio website": {
-    category: "Full-Stack Web Application",
-    type: "Solo Project",
-    problem:
-      "Static portfolio sites require manual code edits and redeployment whenever project entries or contact inquiries change.",
-    solution:
-      "Built a decoupled full-stack web application using React, Vite, and Tailwind CSS on the frontend, paired with an Express.js REST API and Supabase PostgreSQL database on the backend.",
-    features: [
-      "REST API endpoints (`/api/projects`, `/api/contact`, `/api/health`) in Express.js",
-      "Admin key authentication middleware (`x-admin-key`) protecting project create, update, and delete routes",
-      "Dual-channel contact handling: Web3Forms email delivery with Supabase `contacts` table persistence",
-      "Environment-aware database layer supporting Supabase PostgreSQL with legacy MongoDB/Mongoose fallback",
-    ],
-    architecture:
-      "React + Vite SPA communicating over HTTPS with a Node.js/Express REST API hosted on Render, connected to Supabase PostgreSQL via `@supabase/supabase-js`.",
-    databaseDesign:
-      "Two PostgreSQL tables in Supabase with Row Level Security: `projects` (UUID primary key, `title`, `description`, `techStack` and `imageUrls` text arrays, `featured`, `order`, timestamps) and `contacts` (`name`, `email`, `message`, `read`, `created_at`).",
-    personalContribution:
-      "Sole developer responsible for UI/UX design, React component architecture, Express.js REST API implementation, database migration from MongoDB Atlas to Supabase, and cloud deployment on Render.",
-    challenges:
-      "Migrating the persistence layer from MongoDB to Supabase PostgreSQL without breaking frontend components that relied on MongoDB's `_id` field. Resolved by normalizing PostgreSQL `id` values to include `_id` in the Express route layer.",
-    outcomes:
-      "Deployed a live full-stack portfolio on Render backed by Supabase PostgreSQL, with working admin CRUD management and structured project case studies.",
-  },
   "skincare e-commerce": {
     category: "Frontend Development",
     type: "Supporting Frontend Project",

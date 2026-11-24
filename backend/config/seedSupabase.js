@@ -5,7 +5,7 @@ require("dotenv").config();
 const supabase = require("./supabase");
 
 const projects = [
-  // ─── Featured Engineering Projects (7 items: 1 spotlight + 3x2 grid) ───
+  // ─── Featured Engineering Projects (6 items: 3x2 grid) ───
   {
     title: "Jomnes",
     description:
@@ -82,27 +82,6 @@ const projects = [
     order: 5,
   },
   {
-    title: "Personal Portfolio Website",
-    description:
-      "Full-stack personal portfolio built with React, Vite, Tailwind CSS, Express.js, and Supabase PostgreSQL (migrated from MongoDB) with REST API project management and contact persistence.",
-    techStack: ["React", "Vite", "Tailwind CSS", "Express.js", "Supabase", "MongoDB"],
-    imageUrl: "/Port1 (1).png",
-    imageUrls: [
-      "/Port1 (1).png",
-      "/Port2.png",
-      "/Port3.png",
-      "/Port4.png",
-      "/Port5.png",
-      "/Port6.png",
-    ],
-    videoUrl: "",
-    githubUrl: "https://github.com/sivatei/YimSivatey_Portfolio",
-    liveUrl: "",
-    role: "Full-Stack Solo Project",
-    featured: true,
-    order: 6,
-  },
-  {
     title: "Skincare E-Commerce",
     description:
       "Responsive e-commerce frontend featuring product listings, search filtering, product detail pages, dynamic cart management, and a client-side checkout simulation.",
@@ -120,7 +99,7 @@ const projects = [
     liveUrl: "",
     role: "Frontend Project",
     featured: true,
-    order: 7,
+    order: 6,
   },
 
   // ─── UI/UX & Other Projects (Secondary Section) ───
@@ -144,7 +123,7 @@ const projects = [
     liveUrl: "",
     role: "Frontend Project",
     featured: false,
-    order: 8,
+    order: 7,
   },
   {
     title: "Anywhere Beauty App Design",
@@ -158,7 +137,7 @@ const projects = [
     liveUrl: "",
     role: "UI/UX Prototype",
     featured: false,
-    order: 9,
+    order: 8,
   },
   {
     title: "Bus Ticket Booking App Design",
@@ -172,7 +151,7 @@ const projects = [
     liveUrl: "",
     role: "UI/UX Prototype",
     featured: false,
-    order: 10,
+    order: 9,
   },
 ];
 
