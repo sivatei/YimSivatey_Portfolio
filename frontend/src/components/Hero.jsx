@@ -24,17 +24,8 @@ const FEATURED_PREVIEWS = [
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden border-b border-slate-800/80 bg-ink">
-      {/* Subtle panning tech logo pattern faded smoothly from left to right */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full lg:w-[68%] overflow-hidden opacity-80"
-      >
-        <div className="bg-tech-pattern" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/50 to-transparent" />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-5xl px-6 py-16 sm:py-24">
+    <section id="top" className="border-b border-slate-800/80 bg-ink">
+      <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
         <div className="max-w-3xl">
           <p className="eyebrow">CamTech University · Software Engineering</p>
 
