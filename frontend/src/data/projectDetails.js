@@ -26,24 +26,25 @@ export const PROJECT_DETAILS = {
       "Gained practical experience combining cross-platform Flutter UI development with Supabase authentication, PostgreSQL, Express APIs, and Stripe payments.",
   },
   "esp32 classroom noise monitoring system": {
-    category: "Embedded Systems Project",
+    category: "Embedded Systems & IoT Project",
     type: "Hardware / Systems Project",
     problem:
       "Classroom noise can escalate gradually without immediate feedback, making it harder to maintain a focused learning environment.",
     solution:
-      "Developed an embedded monitoring system on an ESP32 microcontroller using FreeRTOS to sample sound sensor readings, evaluate noise thresholds, drive LED indicators and a buzzer, and stream real-time dB telemetry to a ThingsBoard Cloud dashboard.",
+      "Developed an embedded IoT monitoring system on an ESP32 microcontroller using FreeRTOS to read room sound levels, trigger a local LED warning when exceeding a configured threshold, stream live telemetry to a ThingsBoard Cloud dashboard, and activate a buzzer remotely from the dashboard.",
     features: [
-      "Continuous sound sensor monitoring and threshold detection on ESP32",
-      "Real-time task execution managed with FreeRTOS",
-      "Visual status signaling using an LED module and audible alerts via a buzzer module",
-      "Live ThingsBoard Cloud dashboard with time-series noise chart and remote BEEP trigger",
+      "Sound sensor reading and threshold comparison on ESP32",
+      "Local LED warning triggered automatically when noise exceeds the threshold",
+      "Real-time noise telemetry chart and dB readout on ThingsBoard Cloud",
+      "Remote buzzer alarm triggered via the dashboard BEEP control",
+      "Task execution managed with FreeRTOS",
     ],
     architecture:
-      "ESP32 C/C++ firmware running FreeRTOS to coordinate sensor reading, threshold evaluation, hardware output control (LED & buzzer), and cloud telemetry to ThingsBoard.",
+      "Microphone sensor feeds room sound readings to the ESP32 processor running FreeRTOS, which drives local LED alerts, streams telemetry to the ThingsBoard Cloud dashboard, and receives remote BEEP commands to trigger the buzzer.",
     personalContribution:
-      "Worked on ESP32 firmware programming with FreeRTOS, noise threshold detection logic, hardware/software integration for the sensor, LED, and buzzer modules, and ThingsBoard dashboard telemetry.",
+      "Worked on ESP32 firmware programming with FreeRTOS, threshold detection logic, ThingsBoard Cloud dashboard integration, and hardware/software wiring for the microphone sensor, LED, and buzzer.",
     outcomes:
-      "Demonstrated systems-level engineering beyond web and mobile apps, gaining hands-on experience with FreeRTOS, microcontroller I/O, IoT cloud telemetry, and hardware/software debugging.",
+      "Demonstrated end-to-end embedded and IoT integration combining microcontroller firmware (ESP32 + FreeRTOS), hardware I/O, and bidirectional cloud dashboard telemetry and control.",
   },
   homesweet: {
     category: "Student Rental Management Platform",

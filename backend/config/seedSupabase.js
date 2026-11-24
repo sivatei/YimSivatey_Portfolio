@@ -23,10 +23,14 @@ const projects = [
   {
     title: "ESP32 Classroom Noise Monitoring System",
     description:
-      "Embedded classroom noise monitoring system built on an ESP32 microcontroller with FreeRTOS, featuring sound sensor threshold detection, LED status indicators, buzzer alerts, and a live ThingsBoard Cloud telemetry dashboard.",
+      "Embedded IoT classroom noise monitoring system built on an ESP32 microcontroller with FreeRTOS, featuring sound sensor threshold detection, local LED warning, ThingsBoard Cloud telemetry dashboard, and remote buzzer control.",
     techStack: ["ESP32", "C / C++", "FreeRTOS", "ThingsBoard", "Embedded Systems"],
-    imageUrl: "/esp32-hardware.jpg",
-    imageUrls: ["/esp32-hardware.jpg", "/esp32-dashboard.jpg"],
+    imageUrl: "/esp32-diagram.png",
+    imageUrls: [
+      "/esp32-diagram.png",
+      "/esp32-hardware.png",
+      "/esp32-dashboard.png",
+    ],
     videoUrl: "",
     githubUrl: "",
     liveUrl: "",
