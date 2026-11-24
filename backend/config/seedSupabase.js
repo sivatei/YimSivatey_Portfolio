@@ -32,7 +32,7 @@ const projects = [
       "/esp32-dashboard.png",
     ],
     videoUrl: "",
-    githubUrl: "",
+    githubUrl: "https://github.com/sivatei/esp32-classroom-noise-monitor",
     liveUrl: "",
     role: "Embedded Systems",
     featured: true,
