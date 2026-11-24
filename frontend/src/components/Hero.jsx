@@ -25,18 +25,13 @@ const FEATURED_PREVIEWS = [
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden border-b border-slate-800/80 bg-ink">
-      {/* Subtle panning tech logo pattern masked toward the right */}
+      {/* Subtle panning tech logo pattern faded smoothly from left to right */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full lg:w-[68%] overflow-hidden opacity-80"
-        style={{
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent 0%, black 35%, black 100%)",
-          maskImage:
-            "linear-gradient(to right, transparent 0%, black 35%, black 100%)",
-        }}
       >
         <div className="bg-tech-pattern" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/50 to-transparent" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 py-16 sm:py-24">
