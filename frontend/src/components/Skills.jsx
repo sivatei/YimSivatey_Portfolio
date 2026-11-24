@@ -25,6 +25,7 @@ const SKILL_CATEGORIES = [
       "MongoDB",
       "Redis",
       "Firebase",
+      "DBeaver",
     ],
   },
   {
