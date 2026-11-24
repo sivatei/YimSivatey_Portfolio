@@ -100,41 +100,52 @@ export default function Contact() {
           Open to software engineering internships, entry-level roles, and technical collaborations.
         </p>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-12 items-start">
-          {/* Direct Contact & CV */}
-          <div className="md:col-span-5 panel-card p-6 sm:p-7 space-y-5">
-            <h3 className="font-mono text-xs uppercase tracking-wider text-blue-400">
-              Direct Links
-            </h3>
+        <div className="mt-10 grid gap-6 md:grid-cols-12 items-stretch">
+          {/* Direct Contact */}
+          <div className="md:col-span-5 panel-card p-6 sm:p-7 flex flex-col justify-between gap-6">
+            <div className="space-y-5">
+              <h3 className="font-mono text-xs uppercase tracking-wider text-blue-400">
+                Direct Links
+              </h3>
 
-            <ul className="divide-y divide-slate-800 text-sm">
-              {DIRECT_LINKS.map((item) => (
-                <li key={item.label} className="py-3.5 first:pt-0 last:pb-0">
-                  <div className="flex items-start gap-3">
-                    <span className="mt-0.5">{item.icon}</span>
-                    <div className="min-w-0">
-                      <p className="font-mono text-[11px] text-slate-400">
-                        {item.label}
-                      </p>
-                      <a
-                        href={item.href}
-                        target={item.external ? "_blank" : undefined}
-                        rel={item.external ? "noreferrer" : undefined}
-                        className="mt-0.5 inline-block text-paper hover:text-blue-400 transition-colors break-all"
-                      >
-                        {item.value}
-                      </a>
+              <ul className="divide-y divide-slate-800 text-sm">
+                {DIRECT_LINKS.map((item) => (
+                  <li key={item.label} className="py-3.5 first:pt-0 last:pb-0">
+                    <div className="flex items-start gap-3">
+                      <span className="mt-0.5">{item.icon}</span>
+                      <div className="min-w-0">
+                        <p className="font-mono text-[11px] text-slate-400">
+                          {item.label}
+                        </p>
+                        <a
+                          href={item.href}
+                          target={item.external ? "_blank" : undefined}
+                          rel={item.external ? "noreferrer" : undefined}
+                          className="mt-0.5 inline-block text-paper hover:text-blue-400 transition-colors break-all"
+                        >
+                          {item.value}
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="pt-4 border-t border-slate-800 space-y-1">
+              <p className="font-mono text-[11px] uppercase tracking-wider text-slate-400">
+                Availability
+              </p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Open to software engineering internships, entry-level roles, and freelance projects.
+              </p>
+            </div>
           </div>
 
           {/* Contact Form */}
           <form
             onSubmit={handleSubmit}
-            className="md:col-span-7 panel-card p-6 sm:p-7 space-y-4"
+            className="md:col-span-7 panel-card p-6 sm:p-7 flex flex-col justify-between space-y-4"
           >
             <h3 className="font-mono text-xs uppercase tracking-wider text-blue-400">
               Send a Message
