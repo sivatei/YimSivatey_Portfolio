@@ -3,7 +3,7 @@ const PHOTO_SRC = "/avatar.jpg";
 const PROFILE_FACTS = [
   { label: "University", value: "CamTech University" },
   { label: "Degree", value: "B.Sc. Software Engineering" },
-  { label: "Focus", value: "Backend, Databases & Embedded Systems" },
+  { label: "Focus", value: "Backend, Frontend, Databases & System Design" },
   { label: "Email", value: "sivateyyim@gmail.com", href: "mailto:sivateyyim@gmail.com" },
 ];
 
