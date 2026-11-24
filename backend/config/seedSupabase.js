@@ -67,8 +67,13 @@ const projects = [
     description:
       "Full-stack web application built with React, Vite, Tailwind CSS, Express, and Supabase, featuring relational database schema, Row Level Security (RLS), authentication, product and clinic APIs, and report moderation.",
     techStack: ["React", "Vite", "Tailwind CSS", "Express.js", "Supabase"],
-    imageUrl: "",
-    imageUrls: [],
+    imageUrl: "/petly-home.png",
+    imageUrls: [
+      "/petly-home.png",
+      "/petly-shop.jpg",
+      "/petly-vet.jpg",
+      "/petly-login.png",
+    ],
     videoUrl: "",
     githubUrl: "https://github.com/sivatei/Petly",
     liveUrl: "",
