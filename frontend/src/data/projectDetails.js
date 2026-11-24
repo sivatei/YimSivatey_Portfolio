@@ -31,19 +31,19 @@ export const PROJECT_DETAILS = {
     problem:
       "Classroom noise can escalate gradually without immediate feedback, making it harder to maintain a focused learning environment.",
     solution:
-      "Developed an embedded monitoring system on an ESP32 microcontroller using FreeRTOS to sample sound sensor readings, evaluate noise thresholds, and drive LED indicators and a buzzer.",
+      "Developed an embedded monitoring system on an ESP32 microcontroller using FreeRTOS to sample sound sensor readings, evaluate noise thresholds, drive LED indicators and a buzzer, and stream real-time dB telemetry to a ThingsBoard Cloud dashboard.",
     features: [
       "Continuous sound sensor monitoring and threshold detection on ESP32",
       "Real-time task execution managed with FreeRTOS",
-      "Visual status signaling using LED indicators",
-      "Audible alert output via buzzer integration",
+      "Visual status signaling using an LED module and audible alerts via a buzzer module",
+      "Live ThingsBoard Cloud dashboard with time-series noise chart and remote BEEP trigger",
     ],
     architecture:
-      "ESP32 C/C++ firmware running FreeRTOS to coordinate sensor reading, threshold evaluation, and hardware output control for LEDs and buzzer.",
+      "ESP32 C/C++ firmware running FreeRTOS to coordinate sensor reading, threshold evaluation, hardware output control (LED & buzzer), and cloud telemetry to ThingsBoard.",
     personalContribution:
-      "Worked on ESP32 firmware programming with FreeRTOS, noise threshold detection logic, and hardware/software integration for the sensor, LEDs, and buzzer.",
+      "Worked on ESP32 firmware programming with FreeRTOS, noise threshold detection logic, hardware/software integration for the sensor, LED, and buzzer modules, and ThingsBoard dashboard telemetry.",
     outcomes:
-      "Demonstrated systems-level engineering beyond web and mobile apps, gaining hands-on experience with FreeRTOS, microcontroller I/O, and hardware/software debugging.",
+      "Demonstrated systems-level engineering beyond web and mobile apps, gaining hands-on experience with FreeRTOS, microcontroller I/O, IoT cloud telemetry, and hardware/software debugging.",
   },
   homesweet: {
     category: "Student Rental Management Platform",
