@@ -51,8 +51,13 @@ const projects = [
     description:
       "Team internship project connecting students with landlords through property discovery, rental applications, identity verification, messaging, and landlord/admin portals.",
     techStack: ["Vue.js", "Firebase", "Firestore", "Figma", "Tailwind CSS"],
-    imageUrl: "/internship.png",
-    imageUrls: ["/internship.png"],
+    imageUrl: "/homesweet-map.jpg",
+    imageUrls: [
+      "/homesweet-map.jpg",
+      "/homesweet-application.png",
+      "/homesweet-login.jpg",
+      "/internship.png",
+    ],
     videoUrl: "",
     githubUrl: "https://github.com/ThyrexGG/Internship-Project",
     liveUrl: "",
