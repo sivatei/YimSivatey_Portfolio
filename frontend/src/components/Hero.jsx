@@ -24,8 +24,22 @@ const FEATURED_PREVIEWS = [
 
 export default function Hero() {
   return (
-    <section id="top" className="border-b border-slate-800/80 bg-ink">
-      <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
+    <section id="top" className="relative overflow-hidden border-b border-slate-800/80 bg-ink">
+      {/* Subtle panning tech logo pattern masked toward the right */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full lg:w-[68%] overflow-hidden opacity-80"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent 0%, black 35%, black 100%)",
+          maskImage:
+            "linear-gradient(to right, transparent 0%, black 35%, black 100%)",
+        }}
+      >
+        <div className="bg-tech-pattern" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-5xl px-6 py-16 sm:py-24">
         <div className="max-w-3xl">
           <p className="eyebrow">CamTech University · Software Engineering</p>
 
