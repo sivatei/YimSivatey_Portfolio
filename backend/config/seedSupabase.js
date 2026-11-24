@@ -51,11 +51,11 @@ const projects = [
     description:
       "Team internship project connecting students with landlords through property discovery, rental applications, identity verification, messaging, and landlord/admin portals.",
     techStack: ["Vue.js", "Firebase", "Firestore", "Figma", "Tailwind CSS"],
-    imageUrl: "/homesweet-map.jpg",
+    imageUrl: "/homesweet-login.jpg",
     imageUrls: [
+      "/homesweet-login.jpg",
       "/homesweet-map.jpg",
       "/homesweet-application.png",
-      "/homesweet-login.jpg",
       "/internship.png",
     ],
     videoUrl: "",
@@ -108,11 +108,11 @@ const projects = [
     description:
       "Responsive e-commerce frontend featuring product listings, search filtering, product detail pages, dynamic cart management, and a client-side checkout simulation.",
     techStack: ["React", "Tailwind CSS"],
-    imageUrl: "/Elisting.png",
+    imageUrl: "/Edetail (1).png",
     imageUrls: [
-      "/Elisting.png",
       "/Edetail (1).png",
       "/Edetail (2).png",
+      "/Elisting.png",
       "/Echeckout.png",
       "/Echeckout2.png",
     ],
