@@ -54,7 +54,11 @@ const projects = [
       "Backend-focused ticket booking prototype built with Node.js, Express, MySQL, Redis, and Docker, featuring independent booking and notification services, MySQL transactions, Redis seat locking, and 409 double-booking prevention.",
     techStack: ["Node.js", "Express.js", "MySQL", "Redis", "Docker"],
     imageUrl: "/movie-eticket-409.jpg",
-    imageUrls: ["/movie-eticket-409.jpg", "/movie-eticket-docker.jpg"],
+    imageUrls: [
+      "/movie-eticket-409.jpg",
+      "/movie-eticket-bookings.jpg",
+      "/movie-eticket-docker.jpg",
+    ],
     videoUrl: "",
     githubUrl: "https://github.com/sivatei/MovieETicket-Prototype",
     liveUrl: "",
