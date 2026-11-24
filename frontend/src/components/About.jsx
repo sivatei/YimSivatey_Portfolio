@@ -41,7 +41,7 @@ export default function About() {
                 <img
                   src={PHOTO_SRC}
                   alt="Yim Sivatey"
-                  className="h-full w-full object-cover object-top"
+                  className="h-full w-full object-cover object-[50%_15%] scale-125"
                   onError={(e) => {
                     e.currentTarget.style.display = "none";
                     e.currentTarget.nextElementSibling.style.display = "flex";
