@@ -1,9 +1,9 @@
 const NAV_LINKS = [
-  { href: "#about",      label: "About" },
-  { href: "#skills",     label: "Skills" },
-  { href: "#projects",   label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact",    label: "Contact" },
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Education & Experience" },
+  { href: "#contact", label: "Contact" },
 ];
 
 const SOCIALS = [
@@ -11,7 +11,7 @@ const SOCIALS = [
     label: "GitHub",
     href: "https://github.com/sivatei",
     icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
       </svg>
     ),
@@ -20,59 +20,57 @@ const SOCIALS = [
     label: "LinkedIn",
     href: "https://linkedin.com/in/sivateyyim",
     icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
       </svg>
     ),
   },
   {
     label: "Email",
-    href: "mailto:sivateyyim@email.com",
+    href: "mailto:sivateyyim@gmail.com",
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8">
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.8" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
       </svg>
     ),
   },
 ];
 
+const STACK = [
+  { tech: "React + Vite", note: "Frontend" },
+  { tech: "Tailwind CSS", note: "Styling" },
+  { tech: "Express.js", note: "REST API" },
+  { tech: "Supabase", note: "PostgreSQL" },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative z-10 border-t border-blue-900/30 mt-8">
-
-      {/* Top glow line */}
-      <div
-        className="absolute top-0 left-0 right-0 h-px"
-        style={{
-          background: "linear-gradient(90deg, transparent, rgba(37,99,235,0.5) 30%, rgba(59,130,246,0.7) 50%, rgba(37,99,235,0.5) 70%, transparent)",
-        }}
-      />
-
-      <div className="mx-auto max-w-5xl px-6 pt-12 pb-8">
-
-        {/* ── Main footer grid ── */}
+    <footer className="border-t border-slate-800/80 bg-ink">
+      <div className="mx-auto max-w-5xl px-6 py-12">
         <div className="grid gap-10 sm:grid-cols-3">
-
-          {/* Brand column */}
-          <div className="space-y-4">
-            <a href="#top" className="inline-block font-display text-2xl font-bold text-paper hover:opacity-80 transition-opacity">
-              sivatey<span className="gradient-text">.dev</span>
+          {/* Brand */}
+          <div className="space-y-3">
+            <a
+              href="#top"
+              className="inline-block font-display text-base font-semibold text-paper hover:text-blue-400 transition-colors"
+            >
+              Yim Sivatey
             </a>
-            <p className="text-sm text-fog/80 leading-relaxed max-w-[200px]">
-              Full-stack developer building end-to-end web experiences.
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-xs">
+              Software Engineering student at CamTech University focusing on application
+              development, backend systems, databases, and embedded systems.
             </p>
-            {/* Social icons */}
-            <div className="flex items-center gap-3 pt-1">
+            <div className="flex items-center gap-2.5 pt-1">
               {SOCIALS.map(({ label, href, icon }) => (
                 <a
                   key={label}
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
-                  rel="noreferrer"
+                  rel={href.startsWith("http") ? "noreferrer" : undefined}
                   aria-label={label}
-                  className="flex items-center justify-center w-9 h-9 rounded-lg border border-crimson/20 text-fog/70 hover:text-ember hover:border-ember/50 hover:bg-crimson/10 transition-all duration-200"
+                  className="flex items-center justify-center w-9 h-9 rounded-md border border-slate-800 text-slate-400 hover:text-paper hover:border-blue-500/60 transition-colors"
                 >
                   {icon}
                 </a>
@@ -80,21 +78,18 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation column */}
+          {/* Navigation */}
           <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-ember mb-4">
+            <p className="font-mono text-xs uppercase tracking-wider text-blue-400 mb-3">
               Navigation
             </p>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2 text-sm">
               {NAV_LINKS.map(({ href, label }) => (
                 <li key={href}>
                   <a
                     href={href}
-                    className="text-sm text-fog/80 hover:text-paper transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-slate-400 hover:text-paper transition-colors"
                   >
-                    <span
-                      className="inline-block w-3 h-px bg-crimson/40 group-hover:w-5 group-hover:bg-ember transition-all duration-300"
-                    />
                     {label}
                   </a>
                 </li>
@@ -102,56 +97,27 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Stack column */}
+          {/* Stack */}
           <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-ember mb-4">
-              Built with
+            <p className="font-mono text-xs uppercase tracking-wider text-blue-400 mb-3">
+              Built With
             </p>
-            <ul className="space-y-2.5">
-              {[
-                { tech: "React", note: "Frontend UI" },
-                { tech: "Express.js", note: "REST API" },
-                { tech: "MongoDB", note: "Database" },
-                { tech: "Tailwind CSS", note: "Styling" },
-                { tech: "Vite", note: "Build tool" },
-              ].map(({ tech, note }) => (
-                <li key={tech} className="flex items-center justify-between text-sm">
-                  <span className="text-fog/80">{tech}</span>
-                  <span className="font-mono text-[10px] text-fog/40">{note}</span>
+            <ul className="space-y-2 text-sm">
+              {STACK.map(({ tech, note }) => (
+                <li key={tech} className="flex items-center justify-between gap-4">
+                  <span className="text-slate-400">{tech}</span>
+                  <span className="font-mono text-[11px] text-slate-500">{note}</span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        {/* ── Divider ── */}
-        <div className="mt-10 h-px bg-gradient-to-r from-blue-600/30 via-blue-400/15 to-transparent" />
-
-        {/* ── Bottom bar ── */}
-        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <p className="font-mono text-xs text-fog/50">
-            © {year}{" "}
-            <span className="text-ember/80">Yim Sivatey</span>.
-            All rights reserved.
-          </p>
-          <p className="font-mono text-xs text-fog/40">
-            Software Engineering Student · Camtech University
-          </p>
-          {/* Back to top */}
-          <a
-            href="#top"
-            className="flex items-center justify-center sm:justify-start gap-1.5 font-mono text-xs text-fog/50 hover:text-ember transition-colors duration-200 group"
-          >
-            back to top
-            <svg
-              className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              strokeWidth="2"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
-            </svg>
+        <div className="mt-10 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-slate-500">
+          <p>&copy; {year} Yim Sivatey. All rights reserved.</p>
+          <p>Software Engineering · CamTech University</p>
+          <a href="#top" className="hover:text-blue-400 transition-colors">
+            Back to top &uarr;
           </a>
         </div>
       </div>

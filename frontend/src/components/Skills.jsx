@@ -1,127 +1,74 @@
-import { useEffect, useRef, useState } from "react";
-
-const skillGroups = [
+const SKILL_CATEGORIES = [
   {
-    label: "Languages & Frameworks",
+    title: "Programming Languages",
+    description:
+      "Core languages used across coursework, web applications, databases, and embedded systems.",
+    skills: ["Java", "JavaScript", "SQL", "C / C++"],
+  },
+  {
+    title: "Frontend & Mobile",
+    description:
+      "Building responsive web interfaces and cross-platform mobile applications.",
+    skills: ["React", "Vue.js", "HTML", "CSS", "Tailwind CSS", "Flutter"],
+  },
+  {
+    title: "Backend & Database",
+    description:
+      "Designing REST APIs, relational schemas, transactions, caching, and cloud data layers.",
     skills: [
-      { name: "JavaScript",        pct: 90 },
-      { name: "Python",            pct: 88 },
-      { name: "Java",              pct: 85 },
-      { name: "C / C++",           pct: 85 },
-      { name: "C#",                pct: 82 },
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "PostgreSQL",
+      "Supabase",
+      "MySQL",
+      "MongoDB",
+      "Redis",
+      "Firebase",
     ],
   },
   {
-    label: "Frontend",
-    skills: [
-      { name: "React",        pct: 88 },
-      { name: "Tailwind CSS", pct: 85 },
-      { name: "HTML / CSS",   pct: 90 },
-      { name: "Bootstrap",    pct: 80 },
-    ],
-  },
-  {
-    label: "Backend & Data",
-    skills: [
-      { name: "Node.js / Express", pct: 88 },
-      { name: "MongoDB",           pct: 85 },
-      { name: "MySQL",             pct: 84 },
-      { name: "REST APIs",         pct: 90 },
-    ],
-  },
-  {
-    label: "Tools & Platforms",
-    skills: [
-      { name: "Git / GitHub", pct: 85 },
-      { name: "Docker",       pct: 78 },
-      { name: "Figma",        pct: 86 },
-    ],
+    title: "Tools & Platforms",
+    description:
+      "Version control, containerization, embedded tooling, and interface prototyping.",
+    skills: ["Git", "GitHub", "Docker", "Linux", "Figma", "ESP32 / FreeRTOS"],
   },
 ];
 
-function SkillBar({ name, pct, delay = 0 }) {
-  const [width, setWidth] = useState(0);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setWidth(pct), delay);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [pct, delay]);
-
-  return (
-    <div ref={ref} className="group">
-      <div className="flex items-center justify-between mb-1.5">
-        <span className="font-mono text-xs text-slate-200 font-semibold">
-          {name}
-        </span>
-        <span
-          className="font-mono text-xs font-semibold transition-all duration-700"
-          style={{ color: pct >= 80 ? "#60a5fa" : pct >= 70 ? "#3b82f6" : "#2563eb" }}
-        >
-          {width}%
-        </span>
-      </div>
-
-      {/* Track */}
-      <div className="h-1.5 w-full rounded-full bg-slate-800/80 overflow-hidden">
-        {/* Fill */}
-        <div
-          className="h-full rounded-full relative overflow-hidden"
-          style={{
-            width: `${width}%`,
-            transition: "width 1s cubic-bezier(0.4, 0, 0.2, 1)",
-            background: "linear-gradient(90deg, #1e3a8a, #2563eb, #3b82f6)",
-          }}
-        >
-          {/* Shimmer sweep */}
-          <span
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%)",
-              animation: "shimmer 2.2s ease-in-out infinite",
-            }}
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Skills() {
   return (
-    <section id="skills" className="mx-auto max-w-5xl px-6 py-20 relative z-10">
-      <p className="eyebrow">02 / skills</p>
-      <h2 className="section-title mt-2 text-3xl text-paper">Technical Skills</h2>
-      <p className="mt-2 text-fog text-sm">proficiency across my tech stack</p>
+    <section id="skills" className="border-b border-slate-800/80">
+      <div className="mx-auto max-w-5xl px-6 py-16 sm:py-24">
+        <p className="eyebrow">02 / Technical Skills</p>
+        <h2 className="section-title mt-2 text-2xl sm:text-3xl text-paper">
+          Technologies &amp; Tools
+        </h2>
+        <p className="mt-2 max-w-2xl text-sm text-slate-400">
+          Technologies I have worked with across university coursework, team projects, and personal
+          engineering builds.
+        </p>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2">
-        {skillGroups.map((group) => (
-          <div key={group.label} className="glass-card p-6">
-            <p className="font-mono text-xs uppercase tracking-widest text-blue-400 font-bold mb-5">
-              {group.label}
-            </p>
-            <div className="space-y-4">
-              {group.skills.map((skill, i) => (
-                <SkillBar
-                  key={skill.name}
-                  name={skill.name}
-                  pct={skill.pct}
-                  delay={i * 120}
-                />
-              ))}
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          {SKILL_CATEGORIES.map((category) => (
+            <div key={category.title} className="panel-card p-6 flex flex-col justify-between">
+              <div>
+                <h3 className="font-display text-base font-semibold text-paper">
+                  {category.title}
+                </h3>
+                <p className="mt-1.5 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                  {category.description}
+                </p>
+              </div>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span key={skill} className="badge">
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

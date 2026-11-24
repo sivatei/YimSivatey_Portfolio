@@ -20,8 +20,30 @@ const contactRoutes = useSupabase
 const app = express();
 
 // --- Middleware ---
-app.use(express.json());
-app.use(cors());
+app.use(express.json({ limit: "100kb" }));
+
+const allowedOrigins = (process.env.CLIENT_ORIGIN || "")
+  .split(",")
+  .map((o) => o.trim())
+  .filter(Boolean);
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      // Allow requests with no Origin header (curl, healthchecks, server-to-server)
+      // or when CLIENT_ORIGIN is unset / wildcard.
+      if (
+        !origin ||
+        allowedOrigins.length === 0 ||
+        allowedOrigins.includes("*") ||
+        allowedOrigins.includes(origin)
+      ) {
+        return callback(null, true);
+      }
+      return callback(new Error("Origin not allowed by CORS."));
+    },
+  })
+);
 
 // --- Routes ---
 app.get("/", (req, res) => {
@@ -50,6 +72,9 @@ app.use((req, res) => {
 
 // --- Error handler ---
 app.use((err, req, res, next) => {
+  if (err.message === "Origin not allowed by CORS.") {
+    return res.status(403).json({ message: err.message });
+  }
   console.error(err.stack);
   res.status(500).json({ message: "Something went wrong on the server." });
 });

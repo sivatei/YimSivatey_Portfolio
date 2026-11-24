@@ -8,6 +8,8 @@ const emptyForm = {
   githubUrl: "",
   liveUrl: "",
   imageUrls: "",
+  featured: true,
+  order: 0,
 };
 
 export default function ProjectForm({ initialProject, onSubmit, onCancel, submitting }) {
@@ -23,6 +25,8 @@ export default function ProjectForm({ initialProject, onSubmit, onCancel, submit
         role: initialProject.role || "",
         githubUrl: initialProject.githubUrl || "",
         liveUrl: initialProject.liveUrl || "",
+        featured: initialProject.featured !== false,
+        order: initialProject.order ?? 0,
       });
     } else {
       setForm(emptyForm);
@@ -30,7 +34,11 @@ export default function ProjectForm({ initialProject, onSubmit, onCancel, submit
   }, [initialProject]);
 
   function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setForm({
+      ...form,
+      [name]: type === "checkbox" ? checked : type === "number" ? Number(value) : value,
+    });
   }
 
   function handleSubmit(e) {
@@ -53,14 +61,16 @@ export default function ProjectForm({ initialProject, onSubmit, onCancel, submit
   return (
     <form
       onSubmit={handleSubmit}
-      className="mt-6 space-y-4 rounded-lg border border-crimson/25 bg-surface/80 p-5"
+      className="mt-6 space-y-4 rounded-xl border border-slate-700 bg-surface p-6"
     >
-      <p className="font-mono text-xs uppercase tracking-wide text-ember">
-        {initialProject ? "edit project" : "new project"}
+      <p className="font-mono text-xs uppercase tracking-wider text-blue-400">
+        {initialProject ? "Edit Project" : "New Project"}
       </p>
 
       <div>
-        <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">Title</label>
+        <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">
+          Title
+        </label>
         <input
           name="title"
           value={form.title}
@@ -71,7 +81,9 @@ export default function ProjectForm({ initialProject, onSubmit, onCancel, submit
       </div>
 
       <div>
-        <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">Description</label>
+        <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">
+          Description
+        </label>
         <textarea
           name="description"
           value={form.description}
@@ -84,22 +96,26 @@ export default function ProjectForm({ initialProject, onSubmit, onCancel, submit
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">Tech stack (comma separated)</label>
+          <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">
+            Tech Stack (comma separated)
+          </label>
           <input
             name="techStack"
             value={form.techStack}
             onChange={handleChange}
-            placeholder="React, Tailwind CSS"
+            placeholder="React, Express.js, Supabase"
             className="input-field"
           />
         </div>
         <div>
-          <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">Role / context</label>
+          <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">
+            Role / Type
+          </label>
           <input
             name="role"
             value={form.role}
             onChange={handleChange}
-            placeholder="Solo project, Team project..."
+            placeholder="Solo Project, Team Project..."
             className="input-field"
           />
         </div>
@@ -107,7 +123,9 @@ export default function ProjectForm({ initialProject, onSubmit, onCancel, submit
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">GitHub URL</label>
+          <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">
+            GitHub URL
+          </label>
           <input
             name="githubUrl"
             value={form.githubUrl}
@@ -116,7 +134,9 @@ export default function ProjectForm({ initialProject, onSubmit, onCancel, submit
           />
         </div>
         <div>
-          <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">Live URL</label>
+          <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">
+            Live URL
+          </label>
           <input
             name="liveUrl"
             value={form.liveUrl}
@@ -126,31 +146,58 @@ export default function ProjectForm({ initialProject, onSubmit, onCancel, submit
         </div>
       </div>
 
-      <div>
-        <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">Image URLs (comma separated)</label>
-        <input
-          name="imageUrls"
-          value={form.imageUrls}
-          onChange={handleChange}
-          placeholder="/img1.png, /img2.png"
-          className="input-field"
-        />
+      <div className="grid gap-4 sm:grid-cols-3 items-end">
+        <div className="sm:col-span-2">
+          <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">
+            Image URLs (comma separated)
+          </label>
+          <input
+            name="imageUrls"
+            value={form.imageUrls}
+            onChange={handleChange}
+            placeholder="/img1.png, /img2.png"
+            className="input-field"
+          />
+        </div>
+        <div>
+          <label className="mb-1 block text-xs text-fog uppercase tracking-wider font-mono">
+            Display Order
+          </label>
+          <input
+            type="number"
+            name="order"
+            value={form.order}
+            onChange={handleChange}
+            className="input-field"
+          />
+        </div>
       </div>
+
+      <label className="inline-flex items-center gap-2 text-xs font-mono text-slate-300 cursor-pointer">
+        <input
+          type="checkbox"
+          name="featured"
+          checked={form.featured}
+          onChange={handleChange}
+          className="rounded border-slate-600 bg-ink text-blue-600 focus:ring-blue-500"
+        />
+        Display in Featured Engineering Projects (uncheck for UI/UX &amp; Other Projects)
+      </label>
 
       <div className="flex gap-3 pt-2">
         <button
           type="submit"
           disabled={submitting}
-          className="btn-glow text-xs px-4 py-2"
+          className="btn-primary text-xs py-2 px-4 disabled:opacity-50"
         >
-          <span>{submitting ? "saving..." : initialProject ? "save changes" : "create project"}</span>
+          {submitting ? "Saving..." : initialProject ? "Save Changes" : "Create Project"}
         </button>
         <button
           type="button"
           onClick={onCancel}
-          className="btn-outline text-xs px-4 py-2"
+          className="btn-secondary text-xs py-2 px-4"
         >
-          cancel
+          Cancel
         </button>
       </div>
     </form>

@@ -9,14 +9,9 @@ import Footer from "./components/Footer.jsx";
 
 export default function App() {
   return (
-    <div className="min-h-screen relative">
-      {/* Ambient floating orbs */}
-      <div className="orb orb-1" aria-hidden="true" />
-      <div className="orb orb-2" aria-hidden="true" />
-      <div className="orb orb-3" aria-hidden="true" />
-
+    <div className="min-h-screen bg-ink text-paper flex flex-col">
       <Navbar />
-      <main>
+      <main className="flex-1">
         <Hero />
         <About />
         <Skills />
