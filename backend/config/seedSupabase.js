@@ -55,6 +55,7 @@ const projects = [
     imageUrls: [
       "/homesweet-login.jpg",
       "/homesweet-map.jpg",
+      "/homesweet-detail.jpg",
       "/homesweet-application.png",
       "/internship.png",
     ],
